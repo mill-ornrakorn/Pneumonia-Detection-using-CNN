@@ -14,9 +14,9 @@
 
 
 ## การจัดการกับ Imbalanced data:
-    การจัดการกับ Imbalanced data มีหลายวิธี เช่น Oversampling (การเพิ่มจำนวนข้อมูลของคลาสน้อย) Under-sampling (การลดจำนวนข้อมูลของคลาสหลัก) Cost-sensitive methods (พิจารณาจากค่าความผิดพลาดจากการแบ่งกลุ่ม (Misclassifiying examles)) การกำหนดค่าน้ำหนักให้กับคลาส (class weights) เป็นต้น
+การจัดการกับ Imbalanced data มีหลายวิธี เช่น Oversampling (การเพิ่มจำนวนข้อมูลของคลาสน้อย) Under-sampling (การลดจำนวนข้อมูลของคลาสหลัก) Cost-sensitive methods (พิจารณาจากค่าความผิดพลาดจากการแบ่งกลุ่ม (Misclassifiying examles)) การกำหนดค่าน้ำหนักให้กับคลาส (class weights) เป็นต้น
 
-ที่มา: https://medium.com/espressofx-notebook/%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5-imbalanced-%E0%B9%83%E0%B8%99-scikit-learn-c22f4c18ebb5
+ที่มา: https://medium.com/espressofx-notebook/จัดการข้อมูล-imbalanced-ใน-scikit-learn-c22f4c18ebb5
 
 ## To do:
 
@@ -72,7 +72,7 @@
 
 
         <p align="center">
-        <img src="https://github.com/mill-ornrakorn/Pneumonia-Detection-using-CNN/blob/main/pic%20for%20readme/result_model1.png?raw=true" alt= "result_model1" height="300">
+        <img src="https://github.com/mill-ornrakorn/Pneumonia-Detection-using-CNN/blob/main/pic%20for%20readme/result_model1.png?raw=true" alt= "result_model1" >
         </p>
 
         เมื่อลองทำนายกับภาพอื่นดู พบว่าทั้ง 16 ภาพนี้ model ทำนายได้ถูกต้องทุกภาพเลย 
