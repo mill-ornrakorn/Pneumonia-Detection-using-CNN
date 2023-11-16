@@ -31,7 +31,7 @@
 [.....] 3. ใช้ transfer learning  
 
 
-
+<!-- 
 ## result
 <details>
 <summary> 1. ทำ Augmentation เฉพาะ train set และใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling (Click เพื่อดูเพิ่มเติม)</summary>
@@ -72,7 +72,7 @@
         
      ภาพที่จะลองมีทั้งหมด 16 ภาพ ประกอบด้วย normal มี 8 ภาพ และ pneumonia มี 8 ภาพ (มาจาก folder val ของชุดข้อมูลนี้)
 
-    *ตัวอย่างการแปลผลในภาพ: p--> pneumonia [0.859] คือ ทำนายว่าเป็น pneumonia โดยมีความน่าจะเป็นอยู่ที่ 0.859 โดยที่ถ้าค่าความน่าจะเป็นมากกว่า 0.5 จะเป็น pneumonia ถ้าน้อยกว่า 0.5 จะเป็น normal*
+    *ตัวอย่างการแปลผลในภาพ: p-> pneumonia [0.859] คือ ทำนายว่าเป็น pneumonia โดยมีความน่าจะเป็นอยู่ที่ 0.859 โดยที่ถ้าค่าความน่าจะเป็นมากกว่า 0.5 จะเป็น pneumonia ถ้าน้อยกว่า 0.5 จะเป็น normal*
 
 
 
@@ -85,25 +85,28 @@
 </details>
 
 
-<!-- <details>
+<details>
 <summary> 2. ใช้ CNN model (ใน 1.) + ใช้ข้อมูลทั้งหมดเลย (Imbalanced) + ทำ Augmentation เฉพาะ train set + class weight (Click เพื่อดูเพิ่มเติม)</summary>
 
 
-</details> -->
+</details>
 
 
 .
 
 .
 
-(ยังมีต่ออีกค่ะ..)
+(ยังมีต่ออีกค่ะ..) -->
 
 ## ตารางสรุป
 
-| No. |      Model         |         Dataset            |    Train set | Test set    | Description | Accuracy | ลองทำนายกับ 16 รูป (normal 8 ภาพ และ pneumonia 8 ภาพ) |
-|-----|:------------------:|---------------------------:|---------:|-----:|------:|------:|------:| 
-| 1.   |    CNN แบบแรก      | ใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling | class ละ 1340 ภาพ |  class ละประมาณ 234 ภาพ | ทำ Augmentation เฉพาะ train set | 89.8% | ถูกต้องทุกภาพ
-| 2.   |    CNN แบบแรก + class weight     | ใช้ข้อมูลทั้งหมดเลย (Imbalanced) | normal มี 1341 ภาพ (28.47 %) ส่วน pneumonia มี 3369 ภาพ (71.53 %) | normal มี 234 ภาพ (37.50 %) ส่วน pneumonia มี 390 ภาพ (62.50 %) | ทำ Augmentation เฉพาะ train set และใช้ class weight มากำหนดค่าน้ำหนักให้กับคลาส | 90.9% | ทำนาย pneumonia ถูกต้องทุกภาพ แต่ทำนาย normal ผิดไป 3 ภาพ จาก 8 ภาพ
+| No. |      Model         |         Dataset            |    Train set | Test set    | Description | Accuracy | Precision | Recall |  F1-Score | ลองทำนายกับ 16 รูป*| Note |
+|-----|:------------------:|---------------------------:|---------:|-----:|-----:|-----:|-----:|------:|------:|------:| ------:| 
+| 1.   |    CNN แบบแรก  (ทำ Aug)    | ใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling | class ละ 1340 ภาพ |  class ละประมาณ 234 ภาพ | ทำ Augmentation เฉพาะ train set | 84.3% | 77.2% | 98.4% | 86.5% | ทำนาย pneumonia ผิด 1 ภาพ และทำนาย normal ถูกทุกภาพ | -
+| 2.   |   CNN แบบแรก + class weight (ทำ Aug)    | ใช้ข้อมูลทั้งหมดเลย (Imbalanced) | normal มี 1341 ภาพ (28.47 %) ส่วน pneumonia มี 3369 ภาพ (71.53 %) | normal มี 234 ภาพ (37.50 %) ส่วน pneumonia มี 390 ภาพ (62.50 %) | ทำ Augmentation เฉพาะ train set และใช้ class weight มากำหนดค่าน้ำหนักให้กับคลาส | 92.7% | 91.97% | 96.9% | 94% | ทำนาย pneumonia ผิด 1 ภาพ และทำนาย normal ถูกทุกภาพ | -
+| 3.   |    CNN แบบแรก + class weight (ไม่ทำ Aug)    | ใช้ข้อมูลทั้งหมดเลย (Imbalanced) | normal มี 1341 ภาพ (28.47 %) ส่วน pneumonia มี 3369 ภาพ (71.53 %) | normal มี 234 ภาพ (37.50 %) ส่วน pneumonia มี 390 ภาพ (62.50 %) | *ไม่ได้ทำ Augmentation* และใช้ class weight มากำหนดค่าน้ำหนักให้กับคลาส | 76.9% | 73.4% | 98.97% | 84.3% | ทำนาย pneumonia ถูกทุกภาพ และทำนาย normal ผิด 3 ภาพ | -
 
+
+*มี normal 8 ภาพ และ pneumonia 8 ภาพ
 
 
