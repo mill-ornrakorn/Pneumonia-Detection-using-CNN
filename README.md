@@ -22,13 +22,13 @@
 
 ที่มา: https://medium.com/espressofx-notebook/จัดการข้อมูล-imbalanced-ใน-scikit-learn-c22f4c18ebb5
 
-## To do:
+<!-- ## To do:
 
 [✅] 1.ทำ Augmentation เฉพาะ train set และใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling
 
 [✅] 2. ใช้ Class Weights มาปรับ
 
-[.....] 3. ใช้ transfer learning  
+[✅] 3. ใช้ transfer learning   -->
 
 
 <!-- 
@@ -100,13 +100,21 @@
 
 ## ตารางสรุป
 
-| No. |      Model         |         Dataset            |    Train set | Test set    | Description | Accuracy | Precision | Recall |  F1-Score | ลองทำนายกับ 16 รูป*| Note |
-|-----|:------------------:|---------------------------:|---------:|-----:|-----:|-----:|-----:|------:|------:|------:| ------:| 
-| 1.   |    CNN แบบแรก  (ทำ Aug)    | ใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling | class ละ 1340 ภาพ |  class ละประมาณ 234 ภาพ | ทำ Augmentation เฉพาะ train set | 84.3% | 77.2% | 98.4% | 86.5% | ทำนาย pneumonia ผิด 1 ภาพ และทำนาย normal ถูกทุกภาพ | -
-| 2.   |   CNN แบบแรก + class weight (ทำ Aug)    | ใช้ข้อมูลทั้งหมดเลย (Imbalanced) | normal มี 1341 ภาพ (28.47 %) ส่วน pneumonia มี 3369 ภาพ (71.53 %) | normal มี 234 ภาพ (37.50 %) ส่วน pneumonia มี 390 ภาพ (62.50 %) | ทำ Augmentation เฉพาะ train set และใช้ class weight มากำหนดค่าน้ำหนักให้กับคลาส | 92.7% | 91.97% | 96.9% | 94% | ทำนาย pneumonia ผิด 1 ภาพ และทำนาย normal ถูกทุกภาพ | -
-| 3.   |    CNN แบบแรก + class weight (ไม่ทำ Aug)    | ใช้ข้อมูลทั้งหมดเลย (Imbalanced) | normal มี 1341 ภาพ (28.47 %) ส่วน pneumonia มี 3369 ภาพ (71.53 %) | normal มี 234 ภาพ (37.50 %) ส่วน pneumonia มี 390 ภาพ (62.50 %) | *ไม่ได้ทำ Augmentation* และใช้ class weight มากำหนดค่าน้ำหนักให้กับคลาส | 76.9% | 73.4% | 98.97% | 84.3% | ทำนาย pneumonia ถูกทุกภาพ และทำนาย normal ผิด 3 ภาพ | -
-
+| No. |      Model         |         Dataset            |    Train set | Test set    | Description | Accuracy | Precision | Recall |  F1-Score | ลองทำนายกับ 16 รูป*| 
+|-----|:------------------:|---------------------------:|---------:|-----:|-----:|-----:|-----:|------:|------:|------:| 
+| 1.   |    CNN แบบแรก  (ทำ Aug)    | ใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling | class ละ 1340 ภาพ |  class ละประมาณ 234 ภาพ | ทำ Augmentation เฉพาะ train set | 84.3% | 77.2% | 98.4% | 86.5% | ทำนาย pneumonia ผิด 1 ภาพ และทำนาย normal ถูกทุกภาพ |
+| 2.   |   CNN แบบแรก + class weight (ทำ Aug)    | ใช้ข้อมูลทั้งหมดเลย (Imbalanced) | normal มี 1341 ภาพ (28.47 %) ส่วน pneumonia มี 3369 ภาพ (71.53 %) | normal มี 234 ภาพ (37.50 %) ส่วน pneumonia มี 390 ภาพ (62.50 %) | ทำ Augmentation เฉพาะ train set และใช้ class weight มากำหนดค่าน้ำหนักให้กับคลาส | 92.7% | 91.97% | 96.9% | 94% | ทำนาย pneumonia ผิด 1 ภาพ และทำนาย normal ถูกทุกภาพ | 
+| 3.   |    CNN แบบแรก + class weight (ไม่ทำ Aug)    | ใช้ข้อมูลทั้งหมดเลย (Imbalanced) | normal มี 1341 ภาพ (28.47 %) ส่วน pneumonia มี 3369 ภาพ (71.53 %) | normal มี 234 ภาพ (37.50 %) ส่วน pneumonia มี 390 ภาพ (62.50 %) | *ไม่ได้ทำ Augmentation* และใช้ class weight มากำหนดค่าน้ำหนักให้กับคลาส | 76.9% | 73.4% | 98.97% | 84.3% | ทำนาย pneumonia ถูกทุกภาพ และทำนาย normal ผิด 3 ภาพ | 
+| 4.   |   VGG16    | ใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling | class ละ 1340 ภาพ |  class ละประมาณ 234 ภาพ | ทำ Augmentation เฉพาะ train set | 87.3% | 88.98% | 85.7% | 87.3% | ทำนาย pneumonia ผิด 4 ภาพ และทำนาย normal ถูกทุกภาพ | 
+| 5.   |   VGG16 ปรับแต่งด้วย Fine-tune    | ใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling | class ละ 1340 ภาพ |  class ละประมาณ 234 ภาพ | ทำ Augmentation เฉพาะ train set | 87.3% | 88.98% | 85.7% | 87.3% | ทำนาย pneumonia ผิด 2 ภาพ และทำนาย normal ถูกทุกภาพ | 
+| 6.   |   ResNet50    | ใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling | class ละ 1340 ภาพ |  class ละประมาณ 234 ภาพ | ทำ Augmentation เฉพาะ train set | 83.3% | 90.6% | 75.1% | 82.1% | ทำนาย pneumonia ผิด 1 ภาพ และทำนาย normal ผิด 2 ภาพ |
+| 7.   |   ResNet50 ปรับแต่งด้วย Fine-tune    | ใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling | class ละ 1340 ภาพ |  class ละประมาณ 234 ภาพ | ทำ Augmentation เฉพาะ train set | 83.1% | 91.4% | 73.9% | 81.7% | ทำนาย pneumonia ผิด 1 ภาพ และทำนาย normal ผิด 2 ภาพ |
+| 8.   |   DenseNet121    | ใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling | class ละ 1340 ภาพ |  class ละประมาณ 234 ภาพ | ทำ Augmentation เฉพาะ train set | 87.7% | 84.7% | 92.7% | 88.5% | ทำนาย pneumonia ผิด 2 ภาพ และทำนาย normal ผิด 1 ภาพ |
+| 9.   |   DenseNet121 ปรับแต่งด้วย Fine-tune    | ใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling | class ละ 1340 ภาพ |  class ละประมาณ 234 ภาพ | ทำ Augmentation เฉพาะ train set | 87.7% | 83.5% | 94.7% | 88.7% | ทำนาย pneumonia ผิด 1 ภาพ และทำนาย normal ผิด 1 ภาพ |
 
 *มี normal 8 ภาพ และ pneumonia 8 ภาพ
+
+
+ดังนั้น Model ที่ 2. CNN แบบแรก + class weight (ทำ Aug) เป็นโมเดลที่มีประสิทธิภาพมากที่สุด โดยมีค่า Accuracy อยู่ที่ 92.7% และค่า F1-Score อยู่ที่ 94% ส่วน Transfer learning ในหมู่ที่เป็น model เดียวกัน อย่างเช่น VGG16 และ VGG16 ปรับแต่งด้วย Fine-tune จะได้ผลลัพธ์ออกมาที่คล้าย ๆ กัน แต่ทั้งนี้ทั้งนั้นถ้าหากมีเวลาจำกัด และข้อมูลมีจำนวนไม่มากนัก การนำ Transfer learning มาใช้ก็จะช่วยตรงจุดนี้ให้สะดวกและมีประสิทธิภาพมากขึ้น
 
 
