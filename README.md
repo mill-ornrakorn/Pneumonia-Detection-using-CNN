@@ -11,9 +11,21 @@
 ## 🔎ความท้าทาย:
 ❗❗ ข้อมูลชุดนี้ Imbalanced มาก ทั้ง train และ test set 
     
-- train set: มีทั้งหมด 4710 ภาพ ประกอบด้วย ภาพ xray normal มี 1341 ภาพ (28.47 %) ส่วน pneumonia มี 3369 ภาพ (71.53 %) ซึ่งภาพ xray normal น้อยกว่า pneumonia อยู่ที่ 2028 ภาพ
+- **Train set:**
 
-- test set: มีทั้งหมด 624 ภาพ ประกอบด้วย ภาพ xray normal มี 234 ภาพ (37.50 %) ส่วน pneumonia มี 390 ภาพ (62.50 %) ซึ่งภาพ xray normal น้อยกว่า pneumonia อยู่ที่ 156 ภาพ
+<p align="center">
+    <img src="https://github.com/mill-ornrakorn/Pneumonia-Detection-using-CNN/blob/main/pic%20for%20readme/no_train_model2.png?raw=true" alt= "Examples of Chest X-Rays" >
+</p>
+
+Train set มีทั้งหมด 4710 ภาพ ประกอบด้วย ภาพ xray normal มี 1341 ภาพ (28.47 %) ส่วน pneumonia มี 3369 ภาพ (71.53 %) ซึ่งภาพ xray normal น้อยกว่า pneumonia อยู่ที่ 2028 ภาพ
+
+- **Test set:** 
+
+<p align="center">
+    <img src="https://github.com/mill-ornrakorn/Pneumonia-Detection-using-CNN/blob/main/pic%20for%20readme/no_test_model2.png?raw=true" alt= "Examples of Chest X-Rays" >
+</p>
+
+Test set มีทั้งหมด 624 ภาพ ประกอบด้วย ภาพ xray normal มี 234 ภาพ (37.50 %) ส่วน pneumonia มี 390 ภาพ (62.50 %) ซึ่งภาพ xray normal น้อยกว่า pneumonia อยู่ที่ 156 ภาพ
 
 
 
@@ -22,14 +34,6 @@
 
 ที่มา: 1. [จัดการข้อมูล Imbalanced ใน Scikit-learn](https://medium.com/espressofx-notebook/จัดการข้อมูล-imbalanced-ใน-scikit-learn-c22f4c18ebb5) 
 2. [Solving Class Imbalance problem in CNN](https://medium.com/x8-the-ai-community/solving-class-imbalance-problem-in-cnn-9c7a5231c478)
-
-<!-- ## To do:
-
-[✅] 1.ทำ Augmentation เฉพาะ train set และใช้ข้อมูลที่เท่ากัน โดยใช้วิธี Under-sampling
-
-[✅] 2. ใช้ Class Weights มาปรับ
-
-[✅] 3. ใช้ transfer learning   -->
 
 
 <!-- 
